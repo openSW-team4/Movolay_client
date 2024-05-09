@@ -1,1 +1,1 @@
-# MovieRecommend_client
+# 프로젝트 Movie Recommendation
