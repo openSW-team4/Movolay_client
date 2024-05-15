@@ -7,3 +7,6 @@ Back-end: <img src="https://img.shields.io/badge/Django-092E20?style=for-the-bad
 Database: <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"></img><br>
 
 - **진행 기간 : 2024.05.13 ~ 2022.06.21**
+- **목표** 
+  - 사용자의 취향에 맞는 영화추천 웹서비스를 개발합니다.
+  - 사용자에게 영화 관련 다양한 경험을 제공합니다.
