@@ -12,10 +12,10 @@ Database: <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-ba
   - 사용자에게 영화 관련 다양한 경험을 제공합니다.
 
 ## 👥팀원 정보 및 업무 분담 내역
-최용준 -
-홍창희 -
-조민채 -
-김예빈 -
+최용준 -    <br>
+홍창희 -    <br>
+조민채 -    <br>
+김예빈 -    <br>
 
 ## 🎞️시연 영상(유튜브 링크)
 
