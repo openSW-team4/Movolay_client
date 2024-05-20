@@ -23,3 +23,8 @@ Database: <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-ba
 
 ## 🎯 필수 기능
 
+## 💭 느낀 점
+최용준 -    <br>
+홍창희 -    <br>
+조민채 -    <br>
+김예빈 -    <br>
