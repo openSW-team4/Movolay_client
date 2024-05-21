@@ -22,6 +22,9 @@ Database: <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-ba
 ## 🖥️ 서비스 구현 화면
 
 ## 🎯 필수 기능
+1,
+2,
+3,
 
 ## 💭 느낀 점
 최용준 -    <br>
