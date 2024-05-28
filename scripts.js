@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Example movies data categorized by genre
+    // 장르별로 분류된 예제 영화 데이터
     const movies = {
         Romance: [
             {
@@ -57,34 +57,34 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
     };
 
-    // Simulate user data
+    // 유저 데이터 시뮬레이션
     const userData = {
         username: 'testUser',
         password: 'password123',
         preferences: ['Romance', 'Horror', 'Animation']
     };
 
-    // Login form handling
+    // 로그인 폼 handling
     document.getElementById('loginForm')?.addEventListener('submit', (e) => {
         e.preventDefault();
-        // Add login logic
+        // 로그인 로직 추가
         window.location.href = 'main.html';
     });
 
-    // Signup form handling
+    // 회원가입 폼 handling
     document.getElementById('signupForm')?.addEventListener('submit', (e) => {
         e.preventDefault();
-        // Add signup logic
+        // 회원가입 로직 추가
         window.location.href = 'main.html';
     });
 
-    // Logout button handling
+    // 로그아웃 버튼 handling
     document.getElementById('logoutButton')?.addEventListener('click', () => {
-        // Add logout logic
+        // 로그아웃 로직 추가
         window.location.href = 'login.html';
     });
 
-    // Display movies on main page
+    // 메인 페이지에 영화 표시
     const moviesContainer = document.getElementById('moviesContainer');
     if (moviesContainer) {
         userData.preferences.forEach((preference) => {
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Show movie details in modal
+    // 모달 청에 영화 상세 정보 표시
     const showMovieDetails = (movie) => {
         document.getElementById('trailer').src = `https://www.youtube.com/embed/${movie.trailer}?autoplay=1`;
         document.getElementById('movieTitle').innerText = movie.title;
@@ -117,13 +117,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('movieModal').style.display = 'flex';
     };
 
-    // Close modal
+    // 모달 창 닫기
     document.getElementById('closeModal')?.addEventListener('click', () => {
         document.getElementById('trailer').src = '';
         document.getElementById('movieModal').style.display = 'none';
     });
 
-    // Load user data on profile page
+    // 프로필 페이지에 유저 데이터 로드
     if (document.getElementById('profileForm')) {
         document.getElementById('username').value = userData.username;
         document.getElementById('password').value = userData.password;
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     newPreferences.push(checkbox.value);
                 }
             });
-            // Save the updated preferences (Here, just log to console)
+            // 업데이트된 취향 저장 (여기서는 콘솔에 로그 출력험)
             console.log('Saved Preferences:', newPreferences);
             window.location.href = 'main.html';
         });
