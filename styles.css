@@ -71,18 +71,24 @@ nav .right-nav input {
 }
 
 .movies-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     padding: 20px;
 }
 
-.movie-poster {
+.genre-row {
+    margin-bottom: 20px;
+}
+
+.genre-row h2 {
+    color: white;
+}
+
+.genre-row .movie-poster {
+    display: inline-block;
     margin: 10px;
     cursor: pointer;
 }
 
-.movie-poster img {
+.genre-row .movie-poster img {
     width: 200px;
     height: 300px;
 }
