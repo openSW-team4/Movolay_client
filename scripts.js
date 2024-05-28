@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const API_KEY = '00a695c44fc0d3305c341bc5ec26258c'; // TMDB API 키
+    const API_KEY = 'YOUR_API_KEY'; // TMDB API 키
     const API_URL = 'https://api.themoviedb.org/3';
     const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w200';
+
+    let sortBy = 'rating'; // 기본 정렬 기준
 
     // 로그인 폼 처리
     document.getElementById('loginForm')?.addEventListener('submit', (e) => {
@@ -23,25 +25,44 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'login.html';
     });
 
+    // 정렬 기준 선택 처리
+    document.getElementById('sortSelect')?.addEventListener('change', (e) => {
+        sortBy = e.target.value;
+        displayMovies();
+    });
+
     // 메인 페이지에 영화 표시
     const moviesContainer = document.getElementById('moviesContainer');
     if (moviesContainer) {
+        displayMovies();
+    }
+
+    async function displayMovies() {
         const userPreferences = JSON.parse(localStorage.getItem('userPreferences')) || [];
-        userPreferences.forEach((preference) => {
-            fetchMoviesByGenre(preference).then(movies => {
-                const genreRow = document.createElement('div');
-                genreRow.classList.add('genre-row');
-                genreRow.innerHTML = `<h2>${preference}</h2>`;
-                movies.forEach(movie => {
-                    const movieElement = document.createElement('div');
-                    movieElement.classList.add('movie-poster');
-                    movieElement.innerHTML = `<img src="${IMAGE_BASE_URL}${movie.poster_path}" alt="${movie.title}">`;
-                    movieElement.addEventListener('click', () => showMovieDetails(movie));
-                    genreRow.appendChild(movieElement);
-                });
-                moviesContainer.appendChild(genreRow);
+        moviesContainer.innerHTML = ''; // 기존 영화 목록 초기화
+        for (const preference of userPreferences) {
+            const movies = await fetchMoviesByGenre(preference);
+            movies.sort((a, b) => {
+                if (sortBy === 'rating') {
+                    return b.vote_average - a.vote_average;
+                } else if (sortBy === 'views') {
+                    return b.popularity - a.popularity;
+                } else if (sortBy === 'release_date') {
+                    return new Date(b.release_date) - new Date(a.release_date);
+                }
             });
-        });
+            const genreRow = document.createElement('div');
+            genreRow.classList.add('genre-row');
+            genreRow.innerHTML = `<h2>${preference}</h2>`;
+            movies.forEach(movie => {
+                const movieElement = document.createElement('div');
+                movieElement.classList.add('movie-poster');
+                movieElement.innerHTML = `<img src="${IMAGE_BASE_URL}${movie.poster_path}" alt="${movie.title}">`;
+                movieElement.addEventListener('click', () => showMovieDetails(movie));
+                genreRow.appendChild(movieElement);
+            });
+            moviesContainer.appendChild(genreRow);
+        }
     }
 
     // 장르별 영화 데이터 가져오기

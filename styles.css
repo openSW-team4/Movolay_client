@@ -70,10 +70,21 @@ nav .right-nav input {
     margin-right: 10px;
 }
 
+.sort-options {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.sort-options label {
+    margin-right: 10px;
+}
+
 .movies-container {
     padding: 20px;
 }
 
+/* 장르별 행 스타일 */
 .genre-row {
     margin-bottom: 20px;
 }
