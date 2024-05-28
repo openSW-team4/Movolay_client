@@ -128,6 +128,7 @@ nav .right-nav input {
     background-color: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
+    z-index: 1000; /* z-index 추가하여 모달 창이 가장 위에 뜨도록 함 */
 }
 
 .modal-content {
