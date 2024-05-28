@@ -68,28 +68,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // 장르별 영화 데이터 가져오기
     async function fetchMoviesByGenre(genre) {
         const genreId = await getGenreId(genre);
-        const response = await fetch(`${API_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`);
+        const response = await fetch(`${API_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&language=ko-KR`);  // 한국어 데이터로 요청
         const data = await response.json();
         return data.results;
     }
 
     // 장르 ID 가져오기
     async function getGenreId(genreName) {
-        const response = await fetch(`${API_URL}/genre/movie/list?api_key=${API_KEY}`);
+        const response = await fetch(`${API_URL}/genre/movie/list?api_key=${API_KEY}&language=ko-KR`);  // 한국어 데이터로 요청
         const data = await response.json();
         const genre = data.genres.find(g => g.name.toLowerCase() === genreName.toLowerCase());
         return genre.id;
     }
 
-    // 모달에 영화 상세 정보 표시
+    // 모달에 영화 상세 정보 표시 (한국어로))
     const showMovieDetails = (movie) => {
         document.getElementById('trailer').src = `https://www.youtube.com/embed/${movie.trailer}?autoplay=1`;
         document.getElementById('movieTitle').innerText = movie.title;
-        document.getElementById('movieGenre').innerText = `Genre: ${movie.genre}`;
-        document.getElementById('movieRating').innerText = `Rating: ${movie.vote_average}`;
-        document.getElementById('userRating').innerText = `User Rating: ${movie.user_rating}`;
-        document.getElementById('movieViews').innerText = `Views: ${movie.popularity}`;
-        document.getElementById('releaseDate').innerText = `Release Date: ${movie.release_date}`;
+        document.getElementById('movieGenre').innerText = `장르: ${movie.genre}`;
+        document.getElementById('movieRating').innerText = `평점: ${movie.vote_average}`;
+        document.getElementById('userRating').innerText = `사용자 평점: ${movie.user_rating}`;
+        document.getElementById('movieViews').innerText = `조회수: ${movie.popularity}`;
+        document.getElementById('releaseDate').innerText = `개봉일: ${movie.release_date}`;
         document.getElementById('movieDescription').innerText = movie.overview;
         document.getElementById('movieModal').style.display = 'flex';
     };
