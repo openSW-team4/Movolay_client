@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let sortBy = 'rating'; // 기본 정렬 기준
 
+
     // 로그인 폼 처리
     document.getElementById('loginForm')?.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -24,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 로그아웃 로직 추가
         window.location.href = 'login.html';
     });
-
+  
     // 정렬 기준 선택 처리
     document.getElementById('sortSelect')?.addEventListener('change', (e) => {
         sortBy = e.target.value;
@@ -63,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             moviesContainer.appendChild(genreRow);
         }
+
     }
 
     // 장르별 영화 데이터 가져오기
