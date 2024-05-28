@@ -87,6 +87,8 @@ nav .right-nav input {
 /* 장르별 행 스타일 */
 .genre-row {
     margin-bottom: 20px;
+    overflow-x: auto;       /* 한 장르의 영화들은 가로로만 나열 */
+    white-space: nowrap;    /* 한 장르의 영화들은 가로로만 나열*/
 }
 
 .genre-row h2 {
