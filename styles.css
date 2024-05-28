@@ -49,6 +49,7 @@ button {
 .main-page {
     background-color: black;
     min-height: 100vh;
+    padding-top: 70px; /* nav 탭 높이만큼 패딩 추가 */
 }
 
 nav {
@@ -56,6 +57,10 @@ nav {
     justify-content: space-between;
     padding: 10px;
     background-color: #1a1a1a;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
 }
 
 nav .left-nav a, nav .right-nav a, nav .right-nav button {
@@ -94,7 +99,7 @@ nav .right-nav input {
 
 .genre-row h2 {
     color: white;
-    position: sticky;       /* 포스터들을 스크롤 할때 장르의 이름은 그대로 고정되게 */
+    position: sticky;
     left: 0;
     background-color: black;
     z-index: 1;
