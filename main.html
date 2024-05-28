@@ -16,11 +16,19 @@
                 <input type="text" placeholder="Search" />
                 <button>🔍</button>
                 <button id="logoutButton">Logout</button>
-                <a href="profile.html">Profile</a>
+                <a href="mypage.html">My page</a>
             </div>
         </nav>
+        <div class="sort-options">
+            <label for="sortSelect">Sort by:</label>
+            <select id="sortSelect">
+                <option value="rating">Rating</option>
+                <option value="views">Views</option>
+                <option value="release_date">Release Date</option>
+            </select>
+        </div>
         <div class="movies-container" id="moviesContainer">
-            <!-- 영화 포스터가 여기 추가될것-->
+            <!-- 영화 포스터가 여기 추가될 것 -->
         </div>
     </div>
     <div id="movieModal" class="modal">

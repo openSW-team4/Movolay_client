@@ -49,6 +49,7 @@ button {
 .main-page {
     background-color: black;
     min-height: 100vh;
+    padding-top: 70px; /* nav 탭 높이만큼 패딩 추가 */
 }
 
 nav {
@@ -56,6 +57,10 @@ nav {
     justify-content: space-between;
     padding: 10px;
     background-color: #1a1a1a;
+    position: fixed;    /* 아래로 스크롤해도 nav탭은 고정되게 */
+    top: 0;
+    width: 100%;
+    z-index: 10;
 }
 
 nav .left-nav a, nav .right-nav a, nav .right-nav button {
@@ -70,16 +75,35 @@ nav .right-nav input {
     margin-right: 10px;
 }
 
+.sort-options {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.sort-options label {
+    margin-right: 10px;
+}
+
 .movies-container {
     padding: 20px;
 }
 
+/* 장르별 행 스타일 */
 .genre-row {
     margin-bottom: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    position: relative;
 }
 
 .genre-row h2 {
     color: white;
+    position: sticky;
+    left: 0;
+    background-color: black;
+    z-index: 1;
+    padding: 10px;
 }
 
 .genre-row .movie-poster {
@@ -104,6 +128,7 @@ nav .right-nav input {
     background-color: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
+    z-index: 1000; /* z-index 추가하여 모달 창이 가장 위에 뜨도록 함 */
 }
 
 .modal-content {
