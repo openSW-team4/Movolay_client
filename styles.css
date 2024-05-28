@@ -49,7 +49,7 @@ button {
 .main-page {
     background-color: black;
     min-height: 100vh;
-    padding-top: 50px; /* nav 탭 높이만큼 패딩 추가 */
+    padding-top: 70px; /* nav 탭 높이만큼 패딩 추가 */
 }
 
 nav {
