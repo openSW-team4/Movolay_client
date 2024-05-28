@@ -85,9 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const showMovieDetails = (movie) => {
         document.getElementById('trailer').src = `https://www.youtube.com/embed/${movie.trailer}?autoplay=1`;
         document.getElementById('movieTitle').innerText = movie.title;
-        document.getElementById('movieGenre').innerText = `장르: ${movie.genre}`;
         document.getElementById('movieRating').innerText = `평점: ${movie.vote_average}`;
-        document.getElementById('userRating').innerText = `사용자 평점: ${movie.user_rating}`;
         document.getElementById('movieViews').innerText = `조회수: ${movie.popularity}`;
         document.getElementById('releaseDate').innerText = `개봉일: ${movie.release_date}`;
         document.getElementById('movieDescription').innerText = movie.overview;
