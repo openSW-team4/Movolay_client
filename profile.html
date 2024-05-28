@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="profile-container">
+        <h1>Profile</h1>
+        <form id="profileForm">
+            <div>
+                <label>Username:</label>
+                <input type="text" id="username" readonly />
+            </div>
+            <div>
+                <label>Password:</label>
+                <input type="password" id="password" readonly />
+            </div>
+            <div class="preferences">
+                <h3>Preferences</h3>
+                <label>
+                    <input type="checkbox" value="Romance" id="romance" /> Romance
+                </label>
+                <label>
+                    <input type="checkbox" value="Horror" id="horror" /> Horror
+                </label>
+                <label>
+                    <input type="checkbox" value="Animation" id="animation" /> Animation
+                </label>
+                <!-- 취향 장르 여기에 더 추가-->
+            </div>
+            <div class="buttons">
+                <button type="button" id="cancelButton">Cancel</button>
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
