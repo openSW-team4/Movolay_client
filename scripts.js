@@ -112,7 +112,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('profileForm')) {
         const userPreferences = JSON.parse(localStorage.getItem('userPreferences')) || [];
         userPreferences.forEach(preference => {
-            document.getElementById(preference.toLowerCase())?.setAttribute('checked', true);
+            const checkbox = document.getElementById(preference);
+            if (checkbox) {
+                checkbox.checked = true;
+            }
         });
 
         document.getElementById('cancelButton').addEventListener('click', () => {
