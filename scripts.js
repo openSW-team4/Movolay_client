@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (moviesContainer) {
         displayMovies();
     }
-
+  
     async function displayMovies() {
         let userPreferences = JSON.parse(localStorage.getItem('userPreferences')) || [];
         moviesContainer.innerHTML = '';
@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (userPreferences.length === 0) {
             userPreferences = ['SF', '가족', '공포', '다큐멘터리', '로맨스', '모험', '미스터리', '범죄', '서부', '스릴러', '애니메이션', '액션', '역사', '음악', '전쟁', '코미디', '판타지'];
         }
-
         for (const preference of userPreferences) {
             const movies = await fetchMoviesByGenre(preference);
             movies.sort((a, b) => {
@@ -116,7 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('profileForm')) {
         const userPreferences = JSON.parse(localStorage.getItem('userPreferences')) || [];
         userPreferences.forEach(preference => {
-            document.getElementById(preference.toLowerCase())?.setAttribute('checked', true);
+            const checkbox = document.getElementById(preference);
+            if (checkbox) {
+                checkbox.checked = true;
+            }
         });
 
         document.getElementById('cancelButton').addEventListener('click', () => {
@@ -136,4 +138,14 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = 'main.html';
         });
     }
+
+    
+    // 전체 체크 버튼 처리
+    document.getElementById('selectAllButton')?.addEventListener('click', () => {
+        const checkboxes = document.querySelectorAll('.preferences input[type="checkbox"]');
+        const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = !allChecked;
+        });
+    });
 });
