@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let sortBy = 'rating'; // 기본 정렬 기준
 
-
     // 로그인 폼 처리
     document.getElementById('loginForm')?.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -25,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 로그아웃 로직 추가
         window.location.href = 'login.html';
     });
-  
+
     // 정렬 기준 선택 처리
     document.getElementById('sortSelect')?.addEventListener('change', (e) => {
         sortBy = e.target.value;
@@ -64,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             moviesContainer.appendChild(genreRow);
         }
-
     }
 
     // 장르별 영화 데이터 가져오기
@@ -83,9 +81,18 @@ document.addEventListener('DOMContentLoaded', () => {
         return genre.id;
     }
 
+    // 영화의 트레일러 영상 URL 가져오기
+    async function fetchMovieTrailer(movieId) {
+        const response = await fetch(`${API_URL}/movie/${movieId}/videos?api_key=${API_KEY}&language=ko-KR`);
+        const data = await response.json();
+        const trailer = data.results.find(video => video.type === 'Trailer' && video.site === 'YouTube');
+        return trailer ? `https://www.youtube.com/embed/${trailer.key}?autoplay=1` : '';
+    }
+
     // 모달에 영화 상세 정보 표시
-    const showMovieDetails = (movie) => {
-        document.getElementById('trailer').src = `https://www.youtube.com/embed/${movie.trailer}?autoplay=1`;
+    const showMovieDetails = async (movie) => {
+        const trailerUrl = await fetchMovieTrailer(movie.id);
+        document.getElementById('trailer').src = trailerUrl;
         document.getElementById('movieTitle').innerText = movie.title;
         document.getElementById('movieRating').innerText = `평점: ${movie.vote_average}`;
         document.getElementById('movieViews').innerText = `조회수: ${movie.popularity}`;
