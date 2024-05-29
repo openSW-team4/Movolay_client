@@ -37,6 +37,23 @@ document.addEventListener('DOMContentLoaded', () => {
         displayMovies();
     }
 
+    // 장르 ID 가져오기
+    async function getGenreId(genreName) {
+        const response = await fetch(`${API_URL}/genre/movie/list?api_key=${API_KEY}&language=ko-KR`);
+        const data = await response.json();
+        const genre = data.genres.find(g => g.name.toLowerCase() === genreName.toLowerCase());
+        return genre.id;
+    }
+
+   // 장르별 영화 데이터 가져오기
+    async function fetchMoviesByGenre(genre) {
+        const genreId = await getGenreId(genre);
+        const response = await fetch(`${API_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&language=ko-KR`);
+        const data = await response.json();
+        return data.results;
+    }
+
+    // 메인 페이지에 영화 display
     async function displayMovies() {
         const userPreferences = JSON.parse(localStorage.getItem('userPreferences')) || [];
         moviesContainer.innerHTML = ''; // 기존 영화 목록 초기화
@@ -63,22 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             moviesContainer.appendChild(genreRow);
         }
-    }
-
-    // 장르별 영화 데이터 가져오기
-    async function fetchMoviesByGenre(genre) {
-        const genreId = await getGenreId(genre);
-        const response = await fetch(`${API_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&language=ko-KR`);
-        const data = await response.json();
-        return data.results;
-    }
-
-    // 장르 ID 가져오기
-    async function getGenreId(genreName) {
-        const response = await fetch(`${API_URL}/genre/movie/list?api_key=${API_KEY}&language=ko-KR`);
-        const data = await response.json();
-        const genre = data.genres.find(g => g.name.toLowerCase() === genreName.toLowerCase());
-        return genre.id;
     }
 
     // 영화의 트레일러 영상 URL 가져오기
