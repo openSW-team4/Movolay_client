@@ -70,14 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // 장르별 영화 데이터 가져오기
     async function fetchMoviesByGenre(genre) {
         const genreId = await getGenreId(genre);
-        const response = await fetch(`${API_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&language=ko-KR`);
+        const response = await fetch(`${API_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&language=ko-KR`);     // 한국어 데이터 불러오도록 language 추가
         const data = await response.json();
         return data.results;
     }
 
     // 장르 ID 가져오기
     async function getGenreId(genreName) {
-        const response = await fetch(`${API_URL}/genre/movie/list?api_key=${API_KEY}&language=ko-KR`);
+        const response = await fetch(`${API_URL}/genre/movie/list?api_key=${API_KEY}&language=ko-KR`);      // 한국어 데이터 불러오도록 language 추가
         const data = await response.json();
         const genre = data.genres.find(g => g.name.toLowerCase() === genreName.toLowerCase());
         return genre.id;
