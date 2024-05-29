@@ -132,4 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = 'main.html';
         });
     }
+    
+    // 전체 체크 버튼 처리
+    document.getElementById('selectAllButton')?.addEventListener('click', () => {
+        const checkboxes = document.querySelectorAll('.preferences input[type="checkbox"]');
+        const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = !allChecked;
+        });
+    });
 });

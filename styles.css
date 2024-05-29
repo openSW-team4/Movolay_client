@@ -48,6 +48,22 @@ button {
     margin: 5px 0;
 }
 
+/* 전체 체크 버튼 */
+.select-all-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.select-all-container button {
+    padding: 5px 10px;
+    background-color: grey;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
 /* 메인 페이지 */
 .main-page {
     background-color: black;
