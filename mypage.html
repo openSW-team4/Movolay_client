@@ -11,15 +11,16 @@
         <h1>Profile</h1>
         <form id="profileForm">
             <div>
-                <label>아이디:</label>
-                <input type="text" placeholder="아이디" id="id-username" />
+                <label>Username:</label>
+                <input type="text" id="username" readonly />
             </div>
             <div>
-                <label>비밀번호:</label>
-                <input type="password" placeholder="비밀번호" id="id-password" />
+                <label>Password:</label>
+                <input type="password" id="password" readonly />
             </div>
             <div class="preferences">
-                <h3>나의 영화 취향</h3>
+                <h3>Preferences</h3>
+                <div class="genre-list">
                 <!-- 취향 장르들 -->
                 <label>
                     <input type="checkbox" value="SF" id="SF"/> SF
@@ -72,6 +73,7 @@
                 <label>
                     <input type="checkbox" value="판타지" id="판타지"/> 판타지
                 </label>
+                </div>
             </div>
             <div class="buttons">
                 <button type="button" id="cancelButton">Cancel</button>
