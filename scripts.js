@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (userPreferences.length === 0) {
             userPreferences = ['SF', '가족', '공포', '다큐멘터리', '로맨스', '모험', '미스터리', '범죄', '서부', '스릴러', '애니메이션', '액션', '역사', '음악', '전쟁', '코미디', '판타지'];
-        }
+        }    // 선택된 장르가 하나도 없다면 전체 장르가 선택되어 메인페이지에 모두 뜰 수 있도록
         for (const preference of userPreferences) {
             const movies = await fetchMoviesByGenre(preference);
             movies.sort((a, b) => {
