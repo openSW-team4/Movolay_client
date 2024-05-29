@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f32763c86a.js" crossorigin="anonymous"></script>
     <title>Main</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="main-page">
         <nav>
-            <div class="left-nav">
-                <a href="main.html">Main</a>
+            <div class="nav" id="left-nav">
+                <a href="main.html">사이트제목</a>
             </div>
-            <div class="right-nav">
+            <div class="nav" id="right-nav">
                 <input type="text" placeholder="Search" />
-                <button>🔍</button>
+                <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
                 <button id="logoutButton">Logout</button>
                 <a href="mypage.html">My page</a>
             </div>
         </nav>
         <div class="sort-options">
-            <label for="sortSelect">정렬 방식:</label>
+            <label for="sortSelect"></label>
             <select id="sortSelect">
-                <option value="rating">높은 평점</option>
-                <option value="views">높은 조회수</option>
-                <option value="release_date">최신 개봉</option>
+                <option value="rating">인기순</option>
+                <option value="views">조회수순</option>
+                <option value="release_date">개봉일순</option>
             </select>
         </div>
         <div class="movies-container" id="moviesContainer">
@@ -35,11 +36,14 @@
         <div class="modal-content">
             <iframe id="trailer" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="video"></iframe>
             <h2 id="movieTitle"></h2>
+            <p id="movieGenre"></p>
             <p id="movieRating"></p>
+            <p id="userRating"></p>
             <p id="movieViews"></p>
             <p id="releaseDate"></p>
             <p id="movieDescription"></p>
             <button id="closeModal">Close</button>
+            <button>Write Review</button>
         </div>
     </div>
     <script src="scripts.js"></script>
