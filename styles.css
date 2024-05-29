@@ -1,6 +1,6 @@
 /* 전반적인 style */
 body {
-    margin: 0;
+    margin: 0px;
     font-family: Arial, sans-serif;
     background-color: black;
     color: white;
@@ -28,11 +28,14 @@ input {
 }
 
 button {
-    padding: 10px;
-    background-color: red;
+    padding:15px;
+    margin:10px;
+    background-color: grey;
     color: white;
     border: none;
     cursor: pointer;
+    height:40px;
+    border-radius: 5px;
 }
 
 .preferences {
@@ -48,6 +51,7 @@ button {
 /* 메인 페이지 */
 .main-page {
     background-color: black;
+    width: 100vw;
     min-height: 100vh;
     padding-top: 70px; /* nav 탭 높이만큼 패딩 추가 */
 }
@@ -59,11 +63,27 @@ nav {
     background-color: #1a1a1a;
     position: fixed;    /* 아래로 스크롤해도 nav탭은 고정되게 */
     top: 0;
-    width: 100%;
+    width: 100vw;
     z-index: 10;
+
 }
 
-nav .left-nav a, nav .right-nav a, nav .right-nav button {
+.nav{
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+#left-nav {
+	margin-left : 15px;
+}
+
+#right-nav {
+	margin-right : 15px;
+}
+
+nav .right-nav button {
     color: white;
     text-decoration: none;
     margin: 0 10px;
@@ -143,4 +163,33 @@ nav .right-nav input {
 .modal-content iframe {
     width: 100%;
     height: 315px;
+}
+
+#sortSelect{
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    border-radius:5px;
+}
+
+#logoutButton{
+    background-color:#1a1a1a;
+}
+#searchButton{
+    background-color:#1a1a1a;
+}
+
+input[type=text]{
+border-radius:30px;
+}
+
+h2{
+    margin:5px;
+}
+.left-nav {
+	margin-left : 15px;
+}
+
+.right-nav {
+	margin-right : 15px;
 }
