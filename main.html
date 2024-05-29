@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f32763c86a.js" crossorigin="anonymous"></script>
+    <title>Main</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-page">
+        <nav>
+            <div class="nav" id="left-nav">
+                <div class="title" href="main.html">Movolay</div> 
+            </div>
+            <div class="nav" id="right-nav">
+                <input type="text" placeholder="Search" />
+                <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button id="logoutButton">Logout</button>
+                <a href="mypage.html">My page</a>
+            </div>
+        </nav>
+        <div class="sort-options">
+            <label for="sortSelect"></label>
+            <select id="sortSelect">
+                <option value="rating">인기순</option>
+                <option value="views">조회수순</option>
+                <option value="release_date">개봉일순</option>
+            </select>
+        </div>
+        <div class="movies-container" id="moviesContainer">
+            <!-- 영화 포스터가 여기 추가될 것 -->
+        </div>
+    </div>
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <iframe id="trailer" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="video"></iframe>
+            <h2 id="movieTitle"></h2>
+            <p id="movieGenre"></p>
+            <p id="movieRating"></p>
+            <p id="userRating"></p>
+            <p id="movieViews"></p>
+            <p id="releaseDate"></p>
+            <p id="movieDescription"></p>
+            <button id="closeModal">Close</button>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
