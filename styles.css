@@ -30,7 +30,7 @@ input {
 button {
     padding:15px;
     margin:10px;
-    background-color: grey;
+    background-color: red;
     color: white;
     border: none;
     cursor: pointer;
