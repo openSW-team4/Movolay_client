@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const API_KEY = '00a695c44fc0d3305c341bc5ec26258c'; // TMDB API 키
     const API_URL = 'https://api.themoviedb.org/3';
     const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w200';
+    const moviesContainer = document.getElementById('moviesContainer');
 
     let sortBy = 'rating'; // 기본 정렬 기준
 
@@ -32,31 +33,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 메인 페이지에 영화 표시
-    const moviesContainer = document.getElementById('moviesContainer');
     if (moviesContainer) {
         displayMovies();
     }
-
-    // 장르 ID 가져오기
-    async function getGenreId(genreName) {
-        const response = await fetch(`${API_URL}/genre/movie/list?api_key=${API_KEY}&language=ko-KR`);
-        const data = await response.json();
-        const genre = data.genres.find(g => g.name.toLowerCase() === genreName.toLowerCase());
-        return genre.id;
-    }
-
-   // 장르별 영화 데이터 가져오기
-    async function fetchMoviesByGenre(genre) {
-        const genreId = await getGenreId(genre);
-        const response = await fetch(`${API_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&language=ko-KR`);
-        const data = await response.json();
-        return data.results;
-    }
-
-    // 메인 페이지에 영화 display
+  
     async function displayMovies() {
-        const userPreferences = JSON.parse(localStorage.getItem('userPreferences')) || [];
-        moviesContainer.innerHTML = ''; // 기존 영화 목록 초기화
+        let userPreferences = JSON.parse(localStorage.getItem('userPreferences')) || [];
+        moviesContainer.innerHTML = '';
+
+        if (userPreferences.length === 0) {
+            userPreferences = ['SF', '가족', '공포', '다큐멘터리', '로맨스', '모험', '미스터리', '범죄', '서부', '스릴러', '애니메이션', '액션', '역사', '음악', '전쟁', '코미디', '판타지'];
+        }
         for (const preference of userPreferences) {
             const movies = await fetchMoviesByGenre(preference);
             movies.sort((a, b) => {
@@ -80,6 +67,22 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             moviesContainer.appendChild(genreRow);
         }
+    }
+
+    // 장르별 영화 데이터 가져오기
+    async function fetchMoviesByGenre(genre) {
+        const genreId = await getGenreId(genre);
+        const response = await fetch(`${API_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&language=ko-KR`);
+        const data = await response.json();
+        return data.results;
+    }
+
+    // 장르 ID 가져오기
+    async function getGenreId(genreName) {
+        const response = await fetch(`${API_URL}/genre/movie/list?api_key=${API_KEY}&language=ko-KR`);
+        const data = await response.json();
+        const genre = data.genres.find(g => g.name.toLowerCase() === genreName.toLowerCase());
+        return genre.id;
     }
 
     // 영화의 트레일러 영상 URL 가져오기
@@ -135,6 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = 'main.html';
         });
     }
+
     
     // 전체 체크 버튼 처리
     document.getElementById('selectAllButton')?.addEventListener('click', () => {

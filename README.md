@@ -2,6 +2,7 @@
 
 ## 🗓️ 프로젝트 개요
 
+
 Front-end: <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"></img><br>
 Back-end: <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge"></img><br>
 Database: <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"></img><br>
