@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (userPreferences.length === 0) {
             userPreferences = ['SF', '가족', '공포', '다큐멘터리', '로맨스', '모험', '미스터리', '범죄', '서부', '스릴러', '애니메이션', '액션', '역사', '음악', '전쟁', '코미디', '판타지'];
-        }
+        }    // 선택된 장르가 하나도 없다면 전체 장르가 선택되어 메인페이지에 모두 뜰 수 있도록
         for (const preference of userPreferences) {
             const movies = await fetchMoviesByGenre(preference);
             movies.sort((a, b) => {
@@ -98,8 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const trailerUrl = await fetchMovieTrailer(movie.id);
         document.getElementById('trailer').src = trailerUrl;
         document.getElementById('movieTitle').innerText = movie.title;
-        document.getElementById('movieRating').innerText = `평점: ${movie.vote_average}`;
-        document.getElementById('movieViews').innerText = `조회수: ${movie.popularity}`;
+        document.getElementById('movieRating').innerText = `⭐: ${movie.vote_average.toFixed(1)}`;     // 소숫점 한자리까지만 표시
+        document.getElementById('movieViews').innerText = `조회수: ${movie.popularity.toFixed(0)} 회`;      // 소숫점 없이 표시
         document.getElementById('releaseDate').innerText = `개봉일: ${movie.release_date}`;
         document.getElementById('movieDescription').innerText = movie.overview;
         document.getElementById('movieModal').style.display = 'flex';

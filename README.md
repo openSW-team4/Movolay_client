@@ -1,11 +1,14 @@
-# 프로젝트 'Movie Recommendation'
+# 프로젝트 'Movolay'
 
 ## 🗓️ 프로젝트 개요
 
 
-Front-end: <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"></img><br>
-Back-end: <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge"></img><br>
-Database: <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"></img><br>
+<img src ="https://img.shields.io/badge/service-Web-red"></img>
+<img src ="https://img.shields.io/badge/frontend-VanilaJS-yellow"></img>
+<img src ="https://img.shields.io/badge/backend-ExpressJS-blue"></img>
+<img src ="https://img.shields.io/badge/Database-MongoDB-green"></img>
+
+
 
 - **진행 기간 : 2024.05.13 ~ 2022.06.05**
 - **목표** 
