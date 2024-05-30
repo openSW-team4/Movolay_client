@@ -184,6 +184,7 @@ nav .right-nav input {
     background-color: black;
     opacity:0.8;
     padding: 25px;
+
     width: 80%;
     max-width: 800px;
     color: white;
@@ -252,3 +253,4 @@ a{
     flex-direction: column;
     align-items: center; /* 폼 요소들을 중앙으로 정렬 */
 }
+
