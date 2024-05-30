@@ -6,7 +6,7 @@ body {
     color: white;
 }
 
-/* 로그인, 회원가입, 프로필 페이지 */
+/* 로그인, 프로필 페이지 */
 .login-container, .profile-container {
     display: flex;
     flex-direction: column;
@@ -15,13 +15,14 @@ body {
     height: 100vh;
 }
 
+/* 회원가입 페이지*/
 .signup-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    padding-top: 30px;
+    padding-top: 40px;
 }
 
 form {
