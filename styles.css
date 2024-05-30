@@ -39,12 +39,12 @@ input {
 button {
     padding:15px;
     margin:10px;
-    background-color: red;
+    background-color:red;
     color: white;
     border: none;
     cursor: pointer;
     height:40px;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 .preferences {
@@ -181,12 +181,12 @@ nav .right-nav input {
 }
 
 .modal-content {
-    background-color: white;
-    opacity:0.9;
-    padding: 20px;
+    background-color: black;
+    opacity:0.8;
+    padding: 25px;
     width: 80%;
     max-width: 800px;
-    color: black;
+    color: white;
     text-align: center;
 }
 
@@ -239,3 +239,16 @@ a{
     gap: 10px;
 }
 
+#cancelButton{
+    background-color:grey;
+}
+
+.buttons{
+    text-align: center;
+}
+
+#signupForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 폼 요소들을 중앙으로 정렬 */
+}
