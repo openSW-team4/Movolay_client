@@ -140,8 +140,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     
-    // 전체 체크 버튼 처리
-    document.getElementById('selectAllButton')?.addEventListener('click', () => {
+    // Sign up 전체체크 버튼 처리
+    document.getElementById('selectAllButton-su')?.addEventListener('click', () => {
+        const checkboxes = document.querySelectorAll('.preferences input[type="checkbox"]');
+        const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = !allChecked;
+        });
+    });
+
+    // My page 전체체크 버튼 처리
+    document.getElementById('selectAllButton-mp')?.addEventListener('click', () => {
         const checkboxes = document.querySelectorAll('.preferences input[type="checkbox"]');
         const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
         checkboxes.forEach(checkbox => {
